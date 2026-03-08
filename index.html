@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Home</title>
+    <title>Robert-Cristian Mocanu | Home</title>
+    
+    <style>
+        html, body { 
+            background-color: #000000 !important; 
+            margin: 0; 
+            padding: 0;
+        }
+    </style>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,31 +20,37 @@
     <nav class="navbar">
         <div class="nav-indicator"></div>
         <a href="index.html">Home</a>
-        <a href="about.html">Chi Sono</a>
         <a href="projects.html">Progetti</a>
         <a href="contact.html">Contatti</a>
     </nav>
 
-    <header>
-        <h1>Robert-Cristian Mocanu</h1>
-        <p class="subtitle">Design raffinato. Codice preciso.</p>
-        <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
-            <a href="projects.html" class="btn-github">I miei Progetti</a>
-            <a href="about.html" style="color: #0071e3; text-decoration: none; font-size: 18px; align-self: center;">Scopri di più ></a>
-        </div>
+    <header class="reveal" style="transition-delay: 1s;">
+        <h1>Benvenuto.</h1>
+        <p class="subtitle">Sviluppo interfacce con stile Apple.</p>
     </header>
 
     <main>
-        <section class="card">
-            <p style="color: #0071e3; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Highlight</p>
+        <section class="card reveal" style="transition-delay: 1.4s;">
             <h2>Thermal Lab</h2>
-            <p style="color: #86868b; margin-bottom: 25px;">L'applicazione interattiva per il calcolo termico con stile minimale.</p>
-            <a href="test.html" class="btn-github" style="background: transparent; border: 1px solid #0071e3; color: #0071e3;">Lancia l'App</a>
+            <p>Esplora il monitoraggio termico con interfaccia dinamica.</p>
+            <br>
+            <a href="projects.html" class="btn-github">Vai al Progetto</a>
+        </section>
+
+        <section class="card reveal">
+            <h2>About Me</h2>
+            <p>Appassionato di design minimale e sviluppo front-end.</p>
+            <br>
+            <a href="about.html" class="btn-github" style="background: transparent; border: 1px solid var(--apple-blue);">Scopri di più</a>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 mrcristian2009. Tutti i diritti riservati.</p>
+    <footer class="reveal">
+        <div class="social-footer">
+            <a href="#" class="social-mini-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></a>
+            <a href="#" class="social-mini-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+        </div>
+        <p>© 2026 Robert-Cristian Mocanu</p>
     </footer>
 
     <script src="script.js"></script>

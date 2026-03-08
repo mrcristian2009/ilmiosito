@@ -1,42 +1,47 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('.navbar');
-    const indicator = document.querySelector('.nav-indicator');
-    const links = document.querySelectorAll('.navbar a');
-
-    // Funzione per spostare la goccia
-    function moveIndicator(target) {
-        const linkRect = target.getBoundingClientRect();
-        const navRect = nav.getBoundingClientRect();
-
-        // Calcoliamo la posizione orizzontale relativa alla barra
-        const leftPos = linkRect.left - navRect.left;
-
-        // Applichiamo larghezza e posizione alla goccia
-        indicator.style.opacity = '1';
-        indicator.style.width = `${linkRect.width}px`;
-        indicator.style.left = `${leftPos}px`;
+// 1. EFFETTO REVEAL (FADE-IN ALLO SCROLL)
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100; // Trigger dell'animazione
+        
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
     }
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal); // Controlla all'avvio
 
-    // Gestione del movimento quando il mouse entra in un link
-    links.forEach(link => {
-        link.addEventListener('mouseenter', (e) => {
-            moveIndicator(e.target);
-        });
-    });
-
-    // La goccia scompare quando il mouse esce completamente dalla Navbar
-    nav.addEventListener('mouseleave', () => {
-        indicator.style.opacity = '0';
-    });
-
-    // Opzionale: Se vuoi che la goccia si posizioni automaticamente 
-    // sulla pagina corrente all'avvio:
-    const activeLink = Array.from(links).find(link => 
-        window.location.href.includes(link.getAttribute('href'))
-    );
+// 2. LOGICA TERMOMETRO (Se presente nella pagina)
+const slider = document.getElementById('temp-slider');
+if (slider) {
+    const liquid = document.getElementById('temp-liquid');
+    const display = document.getElementById('temp-value');
     
-    if (activeLink) {
-        // Un piccolo ritardo per permettere al CSS di caricare le dimensioni
-        setTimeout(() => moveIndicator(activeLink), 100);
-    }
+    slider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        display.innerText = val;
+        const percent = ((val - (-10)) / 60) * 100;
+        liquid.style.height = percent + "%";
+    });
+}
+
+// 3. NAVBAR INDICATOR (GOCCIA)
+const links = document.querySelectorAll('.navbar a');
+const indicator = document.querySelector('.nav-indicator');
+
+links.forEach(link => {
+    link.addEventListener('mouseenter', (e) => {
+        const rect = e.target.getBoundingClientRect();
+        const navRect = e.target.parentElement.getBoundingClientRect();
+        indicator.style.width = `${rect.width}px`;
+        indicator.style.left = `${rect.left - navRect.left}px`;
+        indicator.style.opacity = '1';
+    });
+});
+
+document.querySelector('.navbar').addEventListener('mouseleave', () => {
+    indicator.style.opacity = '0';
 });

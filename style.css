@@ -25,7 +25,6 @@ body {
     align-items: center;
     text-align: center;
     width: 100%;
-    /* Padding generoso per non far toccare la navbar ai contenuti */
     padding-top: 160px; 
     padding-bottom: 80px;
     overflow-x: hidden;
@@ -75,11 +74,10 @@ body {
     pointer-events: none;
 }
 
-/* --- 4. LAYOUT & FIX DISTANZIAMENTO (Home e Contatti) --- */
+/* --- 4. LAYOUT & FIX DISTANZIAMENTO --- */
 header {
     width: 100%;
     max-width: 850px;
-    /* Crea respiro tra titolo/bottoni e il modulo/card sottostante */
     margin-bottom: 80px; 
     z-index: 1;
 }
@@ -90,7 +88,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* Spazio costante tra più card */
+    gap: 40px;
     z-index: 1;
 }
 
@@ -138,12 +136,7 @@ h1 {
     cursor: pointer;
 }
 
-.btn-github:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3);
-}
-
-/* --- 5. INTERFACCIA TERMOMETRO (Thermal Lab) --- */
+/* --- 5. INTERFACCIA TERMOMETRO --- */
 .thermometer-container {
     display: flex;
     align-items: center;
@@ -212,7 +205,6 @@ h1 {
 
 .unit { color: var(--apple-blue); font-size: 30px; margin-left: 4px; }
 
-/* SLIDER STILE IOS */
 .apple-slider {
     -webkit-appearance: none;
     width: 100%;
@@ -233,7 +225,7 @@ h1 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-/* --- 6. FOOTER & SOCIAL (CON DISTANZIAMENTO) --- */
+/* --- 6. FOOTER & SOCIAL --- */
 footer {
     margin-top: 100px;
     width: 100%;
@@ -245,31 +237,18 @@ footer {
 
 .social-footer {
     display: flex;
-    gap: 32px; /* Distanza tra icone richiesta */
+    gap: 32px;
     padding: 10px 28px;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.social-mini-icon {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.5;
-    transition: all 0.3s ease;
-}
-
-.social-mini-icon img { width: 20px; height: 20px; filter: grayscale(1); }
+.social-mini-icon img { width: 22px; height: 22px; filter: grayscale(1); opacity: 0.5; transition: 0.3s; }
 .social-mini-icon img[alt="GitHub"] { filter: invert(1) grayscale(1); }
-
-.social-mini-icon:hover { opacity: 1; transform: scale(1.2) translateY(-2px); }
+.social-mini-icon:hover { opacity: 1; transform: scale(1.2); }
 .social-mini-icon:hover img { filter: grayscale(0); }
 .social-mini-icon:hover img[alt="GitHub"] { filter: invert(1) grayscale(0); }
-
-footer p { color: #424245; font-size: 12px; }
 
 /* --- 7. FORM CONTATTI --- */
 .contact-form {
@@ -284,7 +263,6 @@ footer p { color: #424245; font-size: 12px; }
     display: block;
     margin-bottom: 8px;
     color: var(--apple-grey-text);
-    font-size: 14px;
 }
 
 .input-group input, .input-group textarea {
@@ -294,11 +272,17 @@ footer p { color: #424245; font-size: 12px; }
     border-radius: 12px;
     padding: 14px;
     color: white;
-    font-family: inherit;
     outline: none;
-    transition: border-color 0.3s;
 }
 
-.input-group input:focus, .input-group textarea:focus {
-    border-color: var(--apple-blue);
+/* --- 8. ANIMAZIONI REVEAL (FADE-IN) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
