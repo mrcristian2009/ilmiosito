@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Contatti | Robert-Cristian Mocanu</title>
+    <meta name="description" content="Hai un'idea o un progetto? Mettiti in contatto con Robert-Cristian Mocanu (mrcristian2009) tramite il modulo diretto.">
+    <meta name="author" content="Robert-Cristian Mocanu">
+    <meta property="og:title" content="Contatti | Robert-Cristian Mocanu">
+    <meta property="og:description" content="Invia un messaggio diretto per collaborazioni o domande tecniche.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; width: 100%; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .contact-form input, .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; padding: 15px; color: #fff; font-family: inherit; font-size: 15px; transition: 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--apple-blue); background: rgba(255, 255, 255, 0.08); }
+        .contact-form textarea { resize: none; height: 120px; }
+        .submit-btn { background: var(--apple-blue); color: #fff; border: none; padding: 15px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .submit-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
+    </style>
 </head>
 <body>
     <div class="custom-cursor" id="cursor"></div>
@@ -19,46 +44,40 @@
     </nav>
 
     <header class="hero-section reveal">
-        <span class="badge">Inizia ora</span>
+        <span class="badge">Connect</span>
         <h1>Parliamo.</h1>
-        <p class="subtitle">Disponibile per consulenze e collaborazioni.</p>
+        <p class="elegant-text">Hai un'idea o un progetto? Scrivimi direttamente qui sotto.</p>
     </header>
 
-    <main>
-        <section class="card bento-big reveal" style="max-width: 900px; width: 90%; margin: 0 auto;">
+    <main class="bento-grid">
+        <section class="card bento-big reveal">
             <div class="card-content">
-                <form id="contact-form" class="grid-form">
-                    <div class="form-row">
-                        <div class="input-group">
-                            <label>Nome Completo</label>
-                            <input type="text" placeholder="Mario Rossi" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Email Personale</label>
-                            <input type="email" placeholder="nome@esempio.it" required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label>Numero di Telefono</label>
-                        <input type="tel" placeholder="+39 333 123 4567" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Il tuo messaggio</label>
-                        <textarea placeholder="Raccontami la tua idea..." rows="6" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-github" style="align-self: flex-end;">Invia Messaggio</button>
+                <span class="badge" style="background: rgba(0, 113, 227, 0.1); color: var(--apple-blue);">Messaggio Diretto</span>
+                <form action="https://formspree.io/f/latuamail@esempio.com" method="POST" class="contact-form">
+                    <div class="form-group"><input type="text" name="name" placeholder="Il tuo Nome" required></div>
+                    <div class="form-group"><input type="email" name="_replyto" placeholder="La tua Email" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Come posso aiutarti?" required></textarea></div>
+                    <button type="submit" class="submit-btn">Invia Messaggio</button>
                 </form>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="social-footer">
-            <a href="https://www.instagram.com/mrcristian.mocanu" class="social-mini-icon" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></a>
-            <a href="https://github.com/mrcristian" class="social-mini-icon" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
-        </div>
-        <p>© 2026 Robert-Cristian Mocanu</p>
-    </footer>
+        <section class="card reveal">
+            <div class="card-content">
+                <h3>Social</h3>
+                <p class="elegant-text">Instagram: @mcncrst</p>
+                <a href="https://www.instagram.com/mcncrst" class="btn-github" target="_blank">Visualizza</a>
+            </div>
+        </section>
+
+        <section class="card reveal">
+            <div class="card-content">
+                <h3>GitHub</h3>
+                <p class="elegant-text">@mrcristian2009</p>
+                <a href="https://github.com/mrcristian2009" class="btn-github" target="_blank">Visualizza</a>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
