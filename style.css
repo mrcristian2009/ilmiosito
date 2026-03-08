@@ -1,0 +1,304 @@
+/* --- 1. RESET & VARIABILI --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --apple-black: #000000;
+    --apple-blue: #0071e3;
+    --apple-grey-text: #86868b;
+    --apple-white: #f5f5f7;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* --- 2. STRUTTURA BODY --- */
+body {
+    background-color: var(--apple-black);
+    color: var(--apple-white);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    /* Padding generoso per non far toccare la navbar ai contenuti */
+    padding-top: 160px; 
+    padding-bottom: 80px;
+    overflow-x: hidden;
+}
+
+/* --- 3. NAVBAR DINAMICA (LA GOCCIA) --- */
+.navbar {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    padding: 6px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    z-index: 10000;
+}
+
+.navbar a {
+    color: var(--apple-grey-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 22px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+}
+
+.navbar a:hover { color: #ffffff; }
+
+.nav-indicator {
+    position: absolute;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 30px;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 0;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+}
+
+/* --- 4. LAYOUT & FIX DISTANZIAMENTO (Home e Contatti) --- */
+header {
+    width: 100%;
+    max-width: 850px;
+    /* Crea respiro tra titolo/bottoni e il modulo/card sottostante */
+    margin-bottom: 80px; 
+    z-index: 1;
+}
+
+main {
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Spazio costante tra più card */
+    z-index: 1;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 15px;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: var(--apple-grey-text);
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 40px;
+    width: 90%;
+    transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.btn-github {
+    background: var(--apple-blue);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-github:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3);
+}
+
+/* --- 5. INTERFACCIA TERMOMETRO (Thermal Lab) --- */
+.thermometer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.thermometer-body {
+    width: 28px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.thermometer-glass {
+    position: absolute;
+    bottom: 8px;
+    left: 6px;
+    right: 6px;
+    top: 8px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.liquid {
+    width: 100%;
+    background: linear-gradient(to top, #0071e3, #ff3b30);
+    border-radius: 10px;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.liquid-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    filter: blur(2px);
+}
+
+.thermometer-bulb {
+    width: 44px;
+    height: 44px;
+    background: #555;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid rgba(255,255,255,0.05);
+    transition: background-color 0.5s ease;
+}
+
+.temp-display { 
+    font-size: 52px; 
+    font-weight: 700; 
+    font-variant-numeric: tabular-nums; 
+}
+
+.unit { color: var(--apple-blue); font-size: 30px; margin-left: 4px; }
+
+/* SLIDER STILE IOS */
+.apple-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    outline: none;
+    margin-top: 20px;
+}
+
+.apple-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* --- 6. FOOTER & SOCIAL (CON DISTANZIAMENTO) --- */
+footer {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-footer {
+    display: flex;
+    gap: 32px; /* Distanza tra icone richiesta */
+    padding: 10px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-mini-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.social-mini-icon img { width: 20px; height: 20px; filter: grayscale(1); }
+.social-mini-icon img[alt="GitHub"] { filter: invert(1) grayscale(1); }
+
+.social-mini-icon:hover { opacity: 1; transform: scale(1.2) translateY(-2px); }
+.social-mini-icon:hover img { filter: grayscale(0); }
+.social-mini-icon:hover img[alt="GitHub"] { filter: invert(1) grayscale(0); }
+
+footer p { color: #424245; font-size: 12px; }
+
+/* --- 7. FORM CONTATTI --- */
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--apple-grey-text);
+    font-size: 14px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 14px;
+    color: white;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--apple-blue);
+}

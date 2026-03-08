@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Lab | mrcristian2009</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-indicator"></div>
+        <a href="index.html">Home</a>
+        <a href="about.html">Chi Sono</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html">Contatti</a>
+    </nav>
+
+    <header>
+        <h1>Thermal Lab</h1>
+        <p class="subtitle">Monitoraggio termico interattivo.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <div class="thermometer-container">
+                <div class="thermometer-body">
+                    <div class="thermometer-glass">
+                        <div id="temp-liquid" class="liquid" style="height: 50%;">
+                            <div class="liquid-glow"></div>
+                        </div>
+                    </div>
+                    <div class="thermometer-bulb"></div>
+                </div>
+                
+                <div class="temp-display">
+                    <span id="temp-value">20</span><span class="unit">°C</span>
+                </div>
+            </div>
+
+            <div style="width: 100%; margin-top: 50px;">
+                <label style="color: #86868b; font-size: 14px; display: block; margin-bottom: 15px;">Regola Temperatura</label>
+                <input type="range" id="temp-slider" min="-10" max="50" value="20" class="apple-slider">
+                <div style="display: flex; justify-content: space-between; color: #424245; font-size: 12px; margin-top: 10px; padding: 0 10px;">
+                    <span>-10°C</span>
+                    <span>50°C</span>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" style="color: #0071e3; text-decoration: none; margin-top: 20px;">← Torna alla Home</a>
+    </main>
+
+    <footer>
+        <div class="social-footer">
+            <a href="https://instagram.com/tuo_profilo" target="_blank" class="social-mini-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+            </a>
+            <a href="https://github.com/mrcristian2009" target="_blank" class="social-mini-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+        </div>
+        <p>© 2026 mrcristian2009. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Gestione Termometro
+        const slider = document.getElementById('temp-slider');
+        const liquid = document.getElementById('temp-liquid');
+        const display = document.getElementById('temp-value');
+        const bulb = document.querySelector('.thermometer-bulb');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            display.innerText = val;
+            
+            // Calcolo percentuale (Range -10 a 50 = 60 unità totali)
+            const percent = ((val - (-10)) / 60) * 100;
+            liquid.style.height = percent + "%";
+
+            // Cambio colore dinamico in base alla temperatura
+            if (val < 10) {
+                liquid.style.background = "linear-gradient(to top, #0071e3, #4facfe)";
+                bulb.style.backgroundColor = "#0071e3";
+            } else if (val > 30) {
+                liquid.style.background = "linear-gradient(to top, #ff3b30, #ff9500)";
+                bulb.style.backgroundColor = "#ff3b30";
+            } else {
+                liquid.style.background = "linear-gradient(to top, #0071e3, #ff3b30)";
+                bulb.style.backgroundColor = "#555";
+            }
+        });
+
+        // Codice Goccia Navbar (se non lo hai già nel file script.js)
+        const links = document.querySelectorAll('.navbar a');
+        const indicator = document.querySelector('.nav-indicator');
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const navRect = e.target.parentElement.getBoundingClientRect();
+                
+                indicator.style.width = `${rect.width}px`;
+                indicator.style.left = `${rect.left - navRect.left}px`;
+                indicator.style.opacity = '1';
+            });
+        });
+
+        document.querySelector('.navbar').addEventListener('mouseleave', () => {
+            indicator.style.opacity = '0';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti | mrcristian2009</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-indicator"></div>
+        <a href="index.html">Home</a>
+        <a href="about.html">Chi Sono</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html">Contatti</a>
+    </nav>
+
+    <header>
+        <h1>Get in Touch</h1>
+        <p class="subtitle">Lavoriamo insieme.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <form action="https://formspree.io/f/mrbyynll" method="POST" class="contact-form">
+                <div class="input-group">
+                    <label style="display: block; margin-bottom: 8px; color: #86868b; font-size: 14px; text-align: left;">Email</label>
+                    <input type="email" name="_replyto" placeholder="tua@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label style="display: block; margin-bottom: 8px; color: #86868b; font-size: 14px; text-align: left;">Messaggio</label>
+                    <textarea name="message" rows="4" placeholder="Come posso aiutarti?" required></textarea>
+                </div>
+                <button type="submit" class="btn-github" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Invia Messaggio</button>
+            </form>
+        </section>
+    </main>
+
+    <footer style="margin-top: 120px; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <div class="social-footer">
+            <a href="https://instagram.com/tuo_profilo" target="_blank" class="social-mini-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+            </a>
+            <a href="https://github.com/mrcristian2009" target="_blank" class="social-mini-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+        </div>
+        <p style="color: #424245; font-size: 12px;">© 2026 mrcristian2009.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
