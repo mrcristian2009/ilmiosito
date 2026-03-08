@@ -4,51 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robert-Cristian Mocanu | Home</title>
-    
-    <style>
-        html, body { 
-            background-color: #000000 !important; 
-            margin: 0; 
-            padding: 0;
-        }
-    </style>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <nav class="navbar">
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="gradient-bg"></div> <nav class="navbar">
         <div class="nav-indicator"></div>
         <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
         <a href="projects.html">Progetti</a>
         <a href="contact.html">Contatti</a>
     </nav>
 
-    <header class="reveal" style="transition-delay: 1s;">
-        <h1>Benvenuto.</h1>
-        <p class="subtitle">Sviluppo interface di Robert-Cristian Mocanu.</p>
+    <header class="hero-section reveal">
+        <span class="badge">Portfolio 2026</span>
+        <h1>Robert-Cristian <br> Mocanu</h1>
+        <p class="subtitle">Trasformo la logica di sistema in esperienze visive minimali.</p>
     </header>
 
-    <main>
-        <section class="card reveal" style="transition-delay: 1.4s;">
-            <h2>Thermal Lab</h2>
-            <p>Esplora il monitoraggio termico con interfaccia dinamica.</p>
-            <br>
-            <a href="projects.html" class="btn-github">Vai al Progetto</a>
+    <main class="bento-grid">
+        <section class="card bento-big reveal">
+            <div class="card-content">
+                <div>
+                    <span class="badge" style="background: rgba(0, 113, 227, 0.2); color: #0071e3;">Featured</span>
+                    <h2 style="margin-top: 15px;">Ingegneria del Software & UI</h2>
+                    <p style="max-width: 400px;">Dai laboratori termici virtuali agli script di automazione CMD. Esplora come unisco funzionalità e design.</p>
+                </div>
+                <a href="projects.html" class="btn-github">Esplora i Lavori</a>
+            </div>
         </section>
 
-        <section class="card reveal">
-            <h2>About Me</h2>
-            <p>Appassionato di design minimale e sviluppo front-end.</p>
-            <br>
-            <a href="about.html" class="btn-github" style="background: transparent; border: 1px solid var(--apple-blue);">Scopri di più</a>
+        <section class="card bento-small reveal" style="transition-delay: 0.1s;">
+            <div class="card-content">
+                <h3>Chi Sono</h3>
+                <p>Sviluppatore autodidatta con una passione per l'ordine e il minimalismo.</p>
+                <a href="about.html" style="color: var(--apple-blue); text-decoration: none; font-size: 14px; font-weight: 500;">Scopri di più →</a>
+            </div>
+        </section>
+
+        <section class="card bento-small reveal" style="transition-delay: 0.2s;">
+            <div class="card-content">
+                <h3>Collaboriamo</h3>
+                <p>Disponibile per nuovi progetti e sfide tecniche.</p>
+                <a href="contact.html" style="color: var(--apple-blue); text-decoration: none; font-size: 14px; font-weight: 500;">Invia un messaggio →</a>
+            </div>
+        </section>
+
+        <section class="card bento-big reveal" style="min-height: 150px; transition-delay: 0.3s;">
+            <div class="card-content" style="flex-direction: row; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                <div class="tech-tag">HTML5</div>
+                <div class="tech-tag">CSS3</div>
+                <div class="tech-tag">JavaScript</div>
+                <div class="tech-tag">Batch/CMD</div>
+                <div class="tech-tag">UI Design</div>
+            </div>
         </section>
     </main>
 
-    <footer class="reveal">
+    <footer>
         <div class="social-footer">
-            <a href="#" class="social-mini-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></a>
-            <a href="#" class="social-mini-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+            <a href="https://www.instagram.com/mrcristian.mocanu" class="social-mini-icon" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></a>
+            <a href="https://github.com/mrcristian" class="social-mini-icon" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
         </div>
         <p>© 2026 Robert-Cristian Mocanu</p>
     </footer>

@@ -3,38 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | mrcristian2009</title>
+    <title>Progetti | Robert-Cristian Mocanu</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="gradient-bg"></div>
+
     <nav class="navbar">
         <div class="nav-indicator"></div>
         <a href="index.html">Home</a>
-        <a href="about.html">Chi Sono</a>
+        <a href="about.html">About Me</a>
         <a href="projects.html">Progetti</a>
         <a href="contact.html">Contatti</a>
     </nav>
 
-    <header>
-        <h1>Portfolio</h1>
-        <p class="subtitle">I miei lavori tra codice e design.</p>
+    <header class="hero-section reveal">
+        <span class="badge">Sviluppo & Risorse</span>
+        <h1>Il mio Percorso.</h1>
+        <p class="subtitle">Dalle basi del sistema alle architetture web.</p>
     </header>
 
-    <main style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 90%; max-width: 1000px;">
-        <section class="card">
-            <div style="font-size: 40px; margin-bottom: 10px;">📖</div>
-            <h2>Autodidatto</h2>
-            <p style="color: #86868b; margin-bottom: 25px;">Il mio percorso di apprendimento indipendente. Raccolta di risorse, test e prime sperimentazioni.</p>
-            <a href="https://github.com/mrcristian2009/Autodidatto" target="_blank" class="btn-github">Esplora Codice</a>
+    <main class="bento-grid">
+        <section class="card bento-big reveal">
+            <div class="card-content">
+                <div>
+                    <span class="badge" style="background: rgba(255, 255, 255, 0.1); color: #fff;">Hub Principale</span>
+                    <h2 style="margin-top: 15px;">GitHub Profile</h2>
+                    <p style="max-width: 500px; margin-bottom: 20px;">Qui raccolgo tutto il mio codice su @mrcristian2009, dai primi esperimenti alle interfacce più rifinite.</p>
+                </div>
+                <a href="https://github.com/mrcristian2009" class="btn-github" target="_blank">Apri Profilo GitHub</a>
+            </div>
         </section>
 
-        <section class="card">
-            <div style="font-size: 40px; margin-bottom: 10px;">🖥️</div>
-            <h2>Esercizi CMD</h2>
-            <p style="color: #86868b; margin-bottom: 25px;">Esercitazioni focalizzate sul Prompt dei Comandi e automazione tramite file batch.</p>
-            <a href="https://github.com/mrcristian2009/Esercizi-CMD" target="_blank" class="btn-github">Esplora Codice</a>
+        <section class="card reveal">
+            <div class="card-content">
+                <div>
+                    <span class="badge" style="background: rgba(0, 113, 227, 0.15); color: var(--apple-blue);">Formazione</span>
+                    <h3>Risorse Autodidatta</h3>
+                    <p>Documentazione e repository che ho studiato per padroneggiare lo sviluppo moderno.</p>
+                </div>
+                <a href="https://github.com/mrcristian2009?tab=repositories" class="btn-github" style="background: rgba(255,255,255,0.1); color: #fff;">Vedi Preferiti</a>
+            </div>
+        </section>
+
+        <section class="card reveal">
+            <div class="card-content">
+                <div>
+                    <span class="badge" style="background: rgba(255, 255, 255, 0.1); color: #86868b;">Automation</span>
+                    <h3>Progetti CMD</h3>
+                    <p>Script CMD e strumenti di ottimizzazione Windows creati da me.</p>
+                </div>
+                <a href="https://github.com/mrcristian2009" class="btn-github">Vedi Repository CMD</a>
+            </div>
         </section>
     </main>
+
+    <footer>
+        <div class="social-footer">
+            <a href="https://www.instagram.com/mrcristian.mocanu" class="social-mini-icon" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></a>
+            <a href="https://github.com/mrcristian2009" class="social-mini-icon" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+        </div>
+        <p>© 2026 Robert-Cristian Mocanu</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
