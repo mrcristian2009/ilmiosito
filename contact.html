@@ -3,81 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Contatti | Robert-Cristian Mocanu</title>
-    <meta name="description" content="Hai un'idea o un progetto? Mettiti in contatto con Robert-Cristian Mocanu (mrcristian2009) tramite il modulo diretto.">
-    <meta name="author" content="Robert-Cristian Mocanu">
-    <meta property="og:title" content="Contatti | Robert-Cristian Mocanu">
-    <meta property="og:description" content="Invia un messaggio diretto per collaborazioni o domande tecniche.">
-    <meta property="og:type" content="website">
-
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-
     <link rel="stylesheet" href="style.css">
-    <style>
-        .contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; width: 100%; }
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .contact-form input, .contact-form textarea {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px; padding: 15px; color: #fff; font-family: inherit; font-size: 15px; transition: 0.3s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--apple-blue); background: rgba(255, 255, 255, 0.08); }
-        .contact-form textarea { resize: none; height: 120px; }
-        .submit-btn { background: var(--apple-blue); color: #fff; border: none; padding: 15px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 10px; }
-        .submit-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
-    </style>
 </head>
 <body>
     <div class="custom-cursor" id="cursor"></div>
     <div class="gradient-bg"></div>
 
     <nav class="navbar">
-        <div class="nav-indicator"></div>
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="projects.html">Progetti</a>
-        <a href="contact.html">Contatti</a>
+        <a href="contact.html" style="color: #fff;">Contatti</a>
     </nav>
 
     <header class="hero-section reveal">
-        <span class="badge">Connect</span>
-        <h1>Parliamo.</h1>
-        <p class="elegant-text">Hai un'idea o un progetto? Scrivimi direttamente qui sotto.</p>
+        <span class="badge">Iniziamo qualcosa</span>
+        <h1>Parliamo del tuo progetto.</h1>
+        <p class="elegant-text">Hai un'idea o una proposta? Scrivimi direttamente qui sotto.</p>
     </header>
 
     <main class="bento-grid">
-        <section class="card bento-big reveal">
-            <div class="card-content">
-                <span class="badge" style="background: rgba(0, 113, 227, 0.1); color: var(--apple-blue);">Messaggio Diretto</span>
-                <form action="https://formspree.io/f/latuamail@esempio.com" method="POST" class="contact-form">
-                    <div class="form-group"><input type="text" name="name" placeholder="Il tuo Nome" required></div>
-                    <div class="form-group"><input type="email" name="_replyto" placeholder="La tua Email" required></div>
-                    <div class="form-group"><textarea name="message" placeholder="Come posso aiutarti?" required></textarea></div>
-                    <button type="submit" class="submit-btn">Invia Messaggio</button>
-                </form>
-            </div>
-        </section>
-
         <section class="card reveal">
-            <div class="card-content">
-                <h3>Social</h3>
-                <p class="elegant-text">Instagram: @mcncrst</p>
-                <a href="https://www.instagram.com/mcncrst" class="btn-github" target="_blank">Visualizza</a>
-            </div>
-        </section>
+            <form action="https://formspree.io/f/mrbyynll" method="POST" id="contact-form" style="width: 100%;">
+                
+                <div class="input-group">
+                    <label for="email">La tua Email</label>
+                    <input type="email" name="email" id="email" placeholder="esempio@email.com" required>
+                </div>
 
-        <section class="card reveal">
-            <div class="card-content">
-                <h3>GitHub</h3>
-                <p class="elegant-text">@mrcristian2009</p>
-                <a href="https://github.com/mrcristian2009" class="btn-github" target="_blank">Visualizza</a>
-            </div>
+                <div class="input-group" style="margin-top: 20px;">
+                    <label for="message">Il tuo Messaggio</label>
+                    <textarea name="message" id="message" rows="5" placeholder="Come posso aiutarti?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-apple btn-blue" style="width: 100%; border: none; cursor: pointer; margin-top: 30px;">
+                    Invia Messaggio
+                </button>
+            </form>
         </section>
     </main>
+
+    <footer>
+        <div class="social-footer">
+            <a href="https://www.instagram.com/mrcristian2009" target="_blank" class="social-mini-icon">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://github.com/mrcristian2009" target="_blank" class="social-mini-icon">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
+            </a>
+        </div>
+        <p style="color: var(--text-gray); font-size: 12px;">© 2026 Robert-Cristian Mocanu</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
