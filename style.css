@@ -3,27 +3,28 @@
     --bg-dark: #000000;
     --card-bg: rgba(28, 28, 30, 0.7);
     --text-gray: #86868b;
+    --border-light: rgba(255, 255, 255, 0.08);
 }
 
-/* RESET E CURSORE */
+/* 1. RESET TOTALE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none !important;
+    cursor: none !important; /* Nasconde il cursore di sistema per quello personalizzato */
 }
 
 html, body {
     width: 100%;
     min-height: 100vh;
-    background-color: #000000;
+    background-color: var(--bg-dark);
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* SFONDO BLOCCATO */
+/* 2. SFONDO E CURSORE */
 .gradient-bg {
     position: fixed;
     top: 0;
@@ -35,7 +36,6 @@ html, body {
     pointer-events: none;
 }
 
-/* CURSORE PERSONALIZZATO */
 .custom-cursor {
     width: 20px;
     height: 20px;
@@ -48,12 +48,13 @@ html, body {
     transition: transform 0.1s ease;
 }
 
+/* Disabilita cursore personalizzato su Mobile */
 @media (max-width: 1024px) {
     .custom-cursor { display: none; }
     * { cursor: auto !important; }
 }
 
-/* NAVBAR */
+/* 3. NAVBAR */
 .navbar {
     position: fixed;
     top: 20px;
@@ -79,7 +80,42 @@ html, body {
 
 .navbar a:hover { color: #fff; }
 
-/* CARD CON RIFLESSO DINAMICO */
+/* 4. HERO SECTION */
+.hero-section {
+    padding: 160px 20px 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.elegant-text {
+    color: var(--text-gray);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-gray);
+    display: inline-block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* 5. GRID E CARD */
 .bento-grid {
     max-width: 900px;
     margin: 0 auto 50px;
@@ -94,7 +130,7 @@ html, body {
     background: var(--card-bg);
     border-radius: 28px;
     padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-light);
     width: 100%;
     max-width: 750px;
     display: flex;
@@ -102,20 +138,55 @@ html, body {
     align-items: center;
     text-align: center;
     position: relative;
-    /* Movimento fluido e armonioso */
     transition: transform 0.15s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
     will-change: transform;
     transform-style: preserve-3d;
 }
 
-/* Effetto quando il mouse è sopra */
 .card:hover {
     border-color: rgba(255, 255, 255, 0.3);
-    /* Ombra Apple: molto sfumata e scura sotto, con un leggero glow bianco sopra */
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
                 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
+/* 6. MODULO CONTATTI (Specifico) */
+form { width: 100%; }
+
+.input-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-gray);
+    margin-left: 5px;
+}
+
+input, textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    transition: 0.3s;
+    outline: none;
+    width: 100%;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--apple-blue);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 7. BOTTONI */
 .btn-apple {
     display: inline-block;
     padding: 12px 28px;
@@ -130,22 +201,50 @@ html, body {
     margin-top: 20px;
 }
 
+.btn-blue {
+    background: var(--apple-blue) !important;
+    color: #fff !important;
+    border: none;
+}
+
 .btn-apple:hover {
-    background: rgba(255, 255, 255, 0.15);
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-/* FOOTER */
+.btn-blue:hover {
+    background: #0077ed !important;
+    box-shadow: 0 0 20px rgba(0, 113, 226, 0.5) !important;
+}
+
+/* 8. FOOTER E ICONE */
 footer { padding: 60px 20px; text-align: center; }
-.social-footer { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
-.social-mini-icon { transition: transform 0.2s ease-out; }
-.social-mini-icon img { width: 24px; height: 24px; filter: brightness(0) invert(1); opacity: 0.5; transition: 0.3s; }
+
+.social-footer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.social-mini-icon img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
 .social-mini-icon:hover img { opacity: 1; }
 
-/* UTILITY */
-.hero-section { padding: 160px 20px 60px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-.elegant-text { color: var(--text-gray); font-size: 17px; line-height: 1.6; max-width: 600px; }
-.badge { background: rgba(255, 255, 255, 0.1); padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; color: var(--text-gray); display: inline-block; margin-bottom: 15px; }
-.reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+/* 9. ANIMAZIONI DI COMPARSA */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
