@@ -6,31 +6,22 @@
     <title>Robert-Cristian Mocanu | Home</title>
     <link rel="stylesheet" href="style.css">
 
+    <script type="module">
+      import { Renderer, Program, Mesh, Triangle } from 'https://cdn.skypack.dev/ogl';
+      window.OGL = { Renderer, Program, Mesh, Triangle };
+    </script>
+
     <meta name="title" content="Robert-Cristian Mocanu | Portfolio">
     <meta name="description" content="Studente ITIS Informatica appassionato di automazione Python, scripting CMD e design minimale Apple-style.">
-    <meta name="keywords" content="Informatica, Python, Automation, Web Design, ITIS Mario Delpozzo, mrcristian2009">
     <meta name="author" content="Robert-Cristian Mocanu">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mrcristian.vercel.app/">
-    <meta property="og:title" content="Robert-Cristian Mocanu | Portfolio">
-    <meta property="og:description" content="Esplora i miei progetti di automazione e il mio percorso nel mondo dello sviluppo software.">
-    <meta property="og:image" content="https://mrcristian.vercel.app/favicon.ico">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mrcristian.vercel.app/">
-    <meta property="twitter:title" content="Robert-Cristian Mocanu | Portfolio">
-    <meta property="twitter:description" content="Automazione e Design Minimale.">
-    <meta property="twitter:image" content="https://mrcristian.vercel.app/favicon.ico">
-
-    <meta name="theme-color" content="#000000">
 </head>
 <body>
+    <div id="plasma-bg"></div>
+
     <div class="custom-cursor" id="cursor"></div>
-    <div class="gradient-bg"></div>
 
     <nav class="navbar">
-        <a href="index.html">Home</a>
+        <a href="index.html" style="color: #fff;">Home</a>
         <a href="about.html">About Me</a>
         <a href="projects.html">Progetti</a>
         <a href="contact.html">Contatti</a>
@@ -58,11 +49,9 @@
             <a href="https://www.instagram.com/mcncrst" target="_blank" class="social-mini-icon">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
             </a>
-            
             <a href="https://github.com/mrcristian2009" target="_blank" class="social-mini-icon">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
             </a>
-
             <a href="https://www.linkedin.com/in/mrcristian2009/" target="_blank" class="social-mini-icon">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
             </a>
