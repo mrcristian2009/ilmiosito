@@ -2,7 +2,7 @@
    APPLE PRO DARK THEME
    ========================================= */
 
-   :root {
+:root {
     /* Colori ufficiali Apple Dark Mode */
     --apple-bg: #000000;
     --apple-card: #111111; /* Grigio scurissimo per staccare dal nero */
@@ -12,9 +12,13 @@
     --apple-nav-bg: rgba(29, 29, 31, 0.72);
 }
 
+/* FIX CRITICO: Rimuove lo spazio bianco sopra la barra su ogni browser */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 body {
-    margin: 0;
-    padding: 0;
     /* Richiama il font originale San Francisco (SF Pro) */
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--apple-bg);
@@ -54,12 +58,15 @@ h1, h2, h3 {
     align-items: center;
     gap: 35px;
     position: sticky;
-    top: 0;
+    top: 0 !important; /* Forza l'adesione al tetto dello schermo */
     background: var(--apple-nav-bg);
     backdrop-filter: saturate(180%) blur(20px); /* L'esatto effetto vetro di Apple */
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    z-index: 100;
+    z-index: 1000; /* Aumentato per stare sopra tutto */
     border-bottom: 1px solid rgba(255,255,255,0.08);
+    width: 100%;
+    left: 0;
+    margin: 0 !important;
 }
 
 .navbar a {
@@ -76,6 +83,7 @@ h1, h2, h3 {
 .hero-section {
     text-align: center;
     padding: 120px 20px 80px 20px;
+    margin-top: 0 !important; /* Impedisce al margine dell'H1 di spingere la navbar */
 }
 
 .hero-section h1 {
@@ -86,6 +94,7 @@ h1, h2, h3 {
     margin-top: 15px;
     background: linear-gradient(180deg, #fff 0%, #86868b 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent; /* Titolo con sfumatura metallica */
 }
 
@@ -143,8 +152,6 @@ h1, h2, h3 {
 /* --- Bottoni Apple (Pillole) --- */
 .btn-apple {
     display: inline-block;
-    background: var(--apple-text-main);
-    color: var(--apple-bg);
     padding: 12px 22px;
     border-radius: 980px; /* Rende il bottone una pillola perfetta */
     text-decoration: none;
@@ -155,14 +162,20 @@ h1, h2, h3 {
     transition: all 0.2s ease;
 }
 
+/* Stile per pulsante bianco (Standard) */
+.btn-apple:not(.btn-blue) {
+    background: var(--apple-text-main);
+    color: var(--apple-bg);
+}
+
 .btn-apple:hover {
     transform: scale(1.03);
-    background: #ffffff;
+    opacity: 0.9;
 }
 
 .btn-blue { 
     background: var(--apple-blue); 
-    color: #fff; 
+    color: #fff !important; /* Forza il bianco anche sui link */
 }
 .btn-blue:hover {
     background: #0077ed;
@@ -208,6 +221,46 @@ footer {
     width: 24px;
     height: 24px;
     filter: invert(1);
+}
+
+/* =========================================
+   MODIFICHE: TECH STACK & GITHUB
+   ========================================= */
+
+.tech-stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tech-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 18px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tech-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: var(--apple-blue);
+}
+
+.tech-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Fix per visibilità testi link in card contatti */
+.card a[download], 
+.card a[href*="linkedin"] {
+    color: #ffffff !important;
 }
 
 /* =========================================
@@ -289,7 +342,7 @@ footer {
    RESTORE: STILE FORM CONTATTI
    ========================================= */
 
-   .input-group {
+.input-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -329,4 +382,28 @@ footer {
 .input-group textarea {
     resize: vertical; /* Permette di allungare il box solo verso il basso */
     min-height: 120px;
+}
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    /* Questo trucco forza la scrollbar a essere sempre presente (ma invisibile se non serve) 
+       evitando lo scatto della navbar tra le pagine */
+    overflow-y: scroll; 
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100%;
+}
+
+.navbar {
+    width: 100vw; /* Usa la larghezza dell'intera finestra */
+    left: 0;
+    top: 0 !important;
+}
+body {
+    display: flex;
+    flex-direction: column;
 }
