@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Access | Restricted</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            transition: all 1s ease;
+        }
+
+        /* Effetto Stark Industries */
+        .stark-mode {
+            background-color: #001a2d !important;
+            color: #00d4ff !important;
+            text-shadow: 0 0 15px #00d4ff;
+        }
+
+        .terminal-container {
+            width: 90%;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid #00ff41;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
+            min-height: 300px;
+            transition: all 0.5s ease;
+        }
+
+        .terminal-container.stark-mode {
+            border-color: #00d4ff !important;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .line { margin-bottom: 8px; line-height: 1.4; }
+        
+        #input-area { display: none; margin-top: 15px; }
+
+        input {
+            background: transparent;
+            border: none;
+            color: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            width: 70%;
+        }
+
+        .system-status { font-size: 10px; text-transform: uppercase; margin-top: 10px; opacity: 0.8; }
+
+        .btn-exit {
+            margin-top: 25px;
+            color: inherit;
+            text-decoration: none;
+            border: 1px solid currentColor;
+            padding: 8px 20px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .btn-exit:hover { background: currentColor; color: #000; }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-container" id="container">
+        <div id="log"></div>
+        <div id="input-area">
+            <span>user@root:~$ </span><input type="text" id="terminal-input" autofocus autocomplete="off">
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-exit">TERMINATE_SESSION</a>
+
+    <script>
+        const log = document.getElementById('log');
+        const inputArea = document.getElementById('input-area');
+        const inputField = document.getElementById('terminal-input');
+        const container = document.getElementById('container');
+
+        const initialLines = [
+            "> INITIALIZING KERNEL...",
+            "> BYPASSING SECURITY_LAYER... [OK]",
+            "> WELCOME TO THE HIDDEN LAYER.",
+            "> Identificarsi per continuare:"
+        ];
+
+        async function typeInitial() {
+            for (let line of initialLines) {
+                let p = document.createElement('div');
+                p.className = 'line';
+                p.innerHTML = line;
+                log.appendChild(p);
+                await new Promise(r => setTimeout(r, 600));
+            }
+            inputArea.style.display = 'block';
+            inputField.focus();
+        }
+
+        inputField.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const val = this.value.trim();
+                if (val.length > 0) {
+                    processCommand(val);
+                    this.value = '';
+                }
+            }
+        });
+
+        async function processCommand(name) {
+            inputArea.style.display = 'none';
+            const response = document.createElement('div');
+            response.className = 'line';
+            response.style.marginTop = "20px";
+
+            // LOGICA ADMIN: MRCISTIAN
+            if (name.toLowerCase() === 'adminmrcristian') {
+                document.body.classList.add('stark-mode');
+                container.classList.add('stark-mode');
+                
+                log.innerHTML = `
+                    <div class="line" style="font-weight:bold;">[!] ACCESS GRANTED: PROTOCOL MARK_85</div>
+                    <div class="line">> Welcome back, Robert. Systems at 100%.</div>
+                    <div class="line">> Ark Reactor: STABLE [3.5 GJ/s]</div>
+                    <div class="line">> Biometric match: 100% (Mocanu, R. C.)</div>
+                    <div class="line" style="margin-top:15px;">"Non è la quantità, ma la qualità del lavoro che conta."</div>
+                    <div class="system-status">>> HUD INITIALIZED... WEAPONS_SYSTEMS: STANDBY <<</div>
+                `;
+                
+                setTimeout(() => {
+                    const exitMsg = document.createElement('div');
+                    exitMsg.innerHTML = "<br>> Chiudi la sessione quando sei pronto, Signore.";
+                    log.appendChild(exitMsg);
+                }, 3000);
+
+            } 
+            // LOGICA QWERTY (EASTER EGG VELOCE)
+            else if (name.toLowerCase() === 'qwerty') {
+                response.innerHTML = `> [!] EASTER_EGG_DETECTED: Modalità Super Smanettone Attivata! Bravo Robert.`;
+                log.appendChild(response);
+                setupRedirect();
+            } 
+            // LOGICA UTENTE NORMALE
+            else {
+                response.innerHTML = `> Ciao ${name.toUpperCase()}, sei proprio un vero smanettone, vero?`;
+                log.appendChild(response);
+                setupRedirect();
+            }
+        }
+
+        function setupRedirect() {
+            setTimeout(() => {
+                let div = document.createElement('div');
+                div.className = 'line';
+                div.innerHTML = "<br>> Sessione terminata. Redirect in corso...";
+                log.appendChild(div);
+                setTimeout(() => window.location.href = "index.html", 2000);
+            }, 3000);
+        }
+
+        typeInitial();
+    </script>
+</body>
+</html>

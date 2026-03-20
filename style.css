@@ -446,3 +446,45 @@ input, textarea {
 input:focus, textarea:focus {
     border-color: #2997ff; /* Il blu ufficiale Apple */
 }
+.navbar a {
+    position: relative;
+    text-decoration: none;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #2997ff;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+/* Effetto Stark Industries */
+.stark-mode {
+    background-color: #001a2d !important; /* Blu scuro profondo */
+    color: #00d4ff !important; /* Celeste neon */
+    border-color: #00d4ff !important;
+    text-shadow: 0 0 15px #00d4ff;
+    transition: all 1s ease;
+}
+
+.stark-glitch {
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 0 0 10px #00d4ff; }
+    to { box-shadow: 0 0 40px #00d4ff; }
+}
+
+.system-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
