@@ -43,7 +43,7 @@
         }
 
         .line { margin-bottom: 8px; line-height: 1.4; }
-        
+
         #input-area { display: none; margin-top: 15px; }
 
         input {
@@ -72,7 +72,6 @@
     </style>
 </head>
 <body>
-
     <div class="terminal-container" id="container">
         <div id="log"></div>
         <div id="input-area">
@@ -99,7 +98,8 @@
             for (let line of initialLines) {
                 let p = document.createElement('div');
                 p.className = 'line';
-                p.innerHTML = line;
+                // IMPORTANT: initialLines sono statiche, ma comunque stampo come testo
+                p.textContent = line;
                 log.appendChild(p);
                 await new Promise(r => setTimeout(r, 600));
             }
@@ -119,6 +119,7 @@
 
         async function processCommand(name) {
             inputArea.style.display = 'none';
+
             const response = document.createElement('div');
             response.className = 'line';
             response.style.marginTop = "20px";
@@ -127,7 +128,8 @@
             if (name.toLowerCase() === 'adminmrcristian') {
                 document.body.classList.add('stark-mode');
                 container.classList.add('stark-mode');
-                
+
+                // Qui NON dipende dall'input utente, quindi innerHTML va bene.
                 log.innerHTML = `
                     <div class="line" style="font-weight:bold;">[!] ACCESS GRANTED: PROTOCOL MARK_85</div>
                     <div class="line">> Welcome back, Robert. Systems at 100%.</div>
@@ -136,23 +138,30 @@
                     <div class="line" style="margin-top:15px;">"Non è la quantità, ma la qualità del lavoro che conta."</div>
                     <div class="system-status">>> HUD INITIALIZED... WEAPONS_SYSTEMS: STANDBY <<</div>
                 `;
-                
+
                 setTimeout(() => {
                     const exitMsg = document.createElement('div');
-                    exitMsg.innerHTML = "<br>> Chiudi la sessione quando sei pronto, Signore.";
+                    exitMsg.className = 'line';
+                    exitMsg.style.fontStyle = 'normal';
+                    // Anche qui usiamo testo puro
+                    exitMsg.textContent = ">> Chiudi la sessione quando sei pronto, Signore.";
                     log.appendChild(exitMsg);
                 }, 3000);
 
             } 
             // LOGICA QWERTY (EASTER EGG VELOCE)
             else if (name.toLowerCase() === 'qwerty') {
-                response.innerHTML = `> [!] EASTER_EGG_DETECTED: Modalità Super Smanettone Attivata! Bravo Robert.`;
+                // IMPORTANT: l'output qui non usa HTML dall'input
+                response.textContent = "> [!] EASTER_EGG_DETECTED: Modalità Super Smanettone Attivata! Bravo Robert.";
                 log.appendChild(response);
                 setupRedirect();
+
             } 
             // LOGICA UTENTE NORMALE
             else {
-                response.innerHTML = `> Ciao ${name.toUpperCase()}, sei proprio un vero smanettone, vero?`;
+                // IMPORTANT: qui prima stavi usando innerHTML con input utente.
+                // Ora stampiamo come testo puro (più sicuro).
+                response.textContent = `> Ciao ${name.toUpperCase()}, sei proprio un vero smanettone, vero?`;
                 log.appendChild(response);
                 setupRedirect();
             }
@@ -162,8 +171,13 @@
             setTimeout(() => {
                 let div = document.createElement('div');
                 div.className = 'line';
-                div.innerHTML = "<br>> Sessione terminata. Redirect in corso...";
+
+                // Niente innerHTML: aggiungo <br> e testo separati
+                const br = document.createElement('br');
+                div.appendChild(br);
+                div.appendChild(document.createTextNode("> Sessione terminata. Redirect in corso..."));
                 log.appendChild(div);
+
                 setTimeout(() => window.location.href = "index.html", 2000);
             }, 3000);
         }
