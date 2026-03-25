@@ -1,14 +1,14 @@
 /* =========================================
-   APPLE PRO DARK THEME
+   APPLE PRO DARK THEME - LUXURY AUTOMOTIVE
    ========================================= */
 
 :root {
-    /* Colori ufficiali Apple Dark Mode */
-    --apple-bg: #000000;
-    --apple-card: #111111; /* Grigio scurissimo per staccare dal nero */
+    /* Colori ufficiali Apple Dark Mode con tweak Luxury */
+    --apple-bg: #050505; 
+    --apple-card: #111111; 
     --apple-text-main: #f5f5f7;
     --apple-text-muted: #86868b;
-    --apple-blue: #2997ff; /* Il blu di Apple in Dark Mode */
+    --apple-blue: #2997ff; 
     --apple-nav-bg: rgba(29, 29, 31, 0.72);
 }
 
@@ -19,19 +19,21 @@ html, body {
 }
 
 body {
-    /* Richiama il font originale San Francisco (SF Pro) */
+    /* IL NUOVO SFONDO: Gradiente radiale "Ambient Lighting" */
+    background: radial-gradient(circle at 50% -10%, #1a1a2e 0%, var(--apple-bg) 60%);
+    background-attachment: fixed;
+    
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--apple-bg);
     color: var(--apple-text-main);
     overflow-x: hidden;
-    letter-spacing: -0.015em; /* Stile tipico Apple per i testi lunghi */
+    letter-spacing: -0.015em; 
     line-height: 1.47059;
 }
 
 /* --- Tipografia Apple --- */
 h1, h2, h3 {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-    letter-spacing: -0.02em; /* Titoli più "stretti" */
+    letter-spacing: -0.02em; 
     font-weight: 600;
     margin: 0;
 }
@@ -52,17 +54,17 @@ h1, h2, h3 {
 
 /* --- Apple Global Nav --- */
 .navbar {
-    height: 44px; /* Altezza standard Apple */
+    height: 44px; 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 35px;
     position: sticky;
-    top: 0 !important; /* Forza l'adesione al tetto dello schermo */
+    top: 0 !important; 
     background: var(--apple-nav-bg);
-    backdrop-filter: saturate(180%) blur(20px); /* L'esatto effetto vetro di Apple */
+    backdrop-filter: saturate(180%) blur(20px); 
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    z-index: 1000; /* Aumentato per stare sopra tutto */
+    z-index: 1000; 
     border-bottom: 1px solid rgba(255,255,255,0.08);
     width: 100%;
     left: 0;
@@ -83,7 +85,7 @@ h1, h2, h3 {
 .hero-section {
     text-align: center;
     padding: 120px 20px 80px 20px;
-    margin-top: 0 !important; /* Impedisce al margine dell'H1 di spingere la navbar */
+    margin-top: 0 !important; 
 }
 
 .hero-section h1 {
@@ -95,7 +97,7 @@ h1, h2, h3 {
     background: linear-gradient(180deg, #fff 0%, #86868b 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; /* Titolo con sfumatura metallica */
+    -webkit-text-fill-color: transparent; 
 }
 
 .elegant-text {
@@ -121,21 +123,21 @@ h1, h2, h3 {
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px; /* Spazio preciso tra le card */
-    max-width: 980px; /* Larghezza contenuta classica di Apple */
+    gap: 24px; 
+    max-width: 980px; 
     margin: 0 auto 80px auto;
     padding: 0 20px;
 }
 
 .card {
     background: var(--apple-card);
-    border-radius: 30px; /* Curvatura più morbida */
+    border-radius: 30px; 
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    border: none; /* Apple non usa bordi, solo contrasto */
+    border: none; 
     overflow: hidden;
 }
 
@@ -145,7 +147,7 @@ h1, h2, h3 {
 }
 
 .card .elegant-text {
-    font-size: 17px; /* Dimensione body standard Apple */
+    font-size: 17px; 
     margin-bottom: 30px;
 }
 
@@ -153,7 +155,7 @@ h1, h2, h3 {
 .btn-apple {
     display: inline-block;
     padding: 12px 22px;
-    border-radius: 980px; /* Rende il bottone una pillola perfetta */
+    border-radius: 980px; 
     text-decoration: none;
     font-size: 15px;
     font-weight: 400;
@@ -175,7 +177,7 @@ h1, h2, h3 {
 
 .btn-blue { 
     background: var(--apple-blue); 
-    color: #fff !important; /* Forza il bianco anche sui link */
+    color: #fff !important; 
 }
 .btn-blue:hover {
     background: #0077ed;
@@ -360,7 +362,7 @@ footer {
 
 .input-group input,
 .input-group textarea {
-    background: #1c1c1e; /* Sfondo scuro ed elegante */
+    background: #1c1c1e; 
     border: 1px solid #333;
     color: #ffffff;
     padding: 14px 16px;
@@ -372,17 +374,15 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* Effetto quando clicchi per scrivere */
 .input-group input:focus,
 .input-group textarea:focus {
     outline: none;
-    border-color: #2997ff; /* Bordo blu Apple quando attivo */
+    border-color: #2997ff; 
     background: #2c2c2e;
 }
 
-/* Rimuove lo stile base bruttino della scrollbar nella textarea */
 .input-group textarea {
-    resize: vertical; /* Permette di allungare il box solo verso il basso */
+    resize: vertical; 
     min-height: 120px;
 }
 
@@ -390,8 +390,6 @@ html {
     margin: 0 !important;
     padding: 0 !important;
     height: 100%;
-    /* Questo trucco forza la scrollbar a essere sempre presente (ma invisibile se non serve) 
-        evitando lo scatto della navbar tra le pagine */
     overflow-y: scroll; 
 }
 
@@ -404,7 +402,7 @@ body {
 }
 
 .navbar {
-    width: 100vw; /* Usa la larghezza dell'intera finestra */
+    width: 100vw; 
     left: 0;
     top: 0 !important;
 }
@@ -418,7 +416,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Dietro a tutto */
+    z-index: -1; 
     pointer-events: none;
 }
 canvas {
@@ -427,7 +425,7 @@ canvas {
     height: 100%;
 }
 ::selection {
-    background-color: rgba(41, 151, 255, 0.3); /* Un blu Apple trasparente */
+    background-color: rgba(41, 151, 255, 0.3); 
     color: #ffffff;
 }
 html {
@@ -444,7 +442,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-    border-color: #2997ff; /* Il blu ufficiale Apple */
+    border-color: #2997ff; 
 }
 .navbar a {
     position: relative;
@@ -467,8 +465,8 @@ input:focus, textarea:focus {
 }
 /* Effetto Stark Industries */
 .stark-mode {
-    background-color: #001a2d !important; /* Blu scuro profondo */
-    color: #00d4ff !important; /* Celeste neon */
+    background-color: #001a2d !important; 
+    color: #00d4ff !important; 
     border-color: #00d4ff !important;
     text-shadow: 0 0 15px #00d4ff;
     transition: all 1s ease;
@@ -490,7 +488,7 @@ input:focus, textarea:focus {
 }
 .privacy-note {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.4); /* Grigio molto chiaro e trasparente */
+    color: rgba(255, 255, 255, 0.4); 
     margin-top: 20px;
     font-weight: 300;
     letter-spacing: 0.5px;
