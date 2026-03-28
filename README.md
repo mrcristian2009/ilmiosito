@@ -63,6 +63,4 @@ LinkedIn: Robert-Cristian Mocanu
 
 GitHub: @mrcristian2009
 
-<p align="center">
 Creato con ossessione per il dettaglio. © 2026
-</p>
