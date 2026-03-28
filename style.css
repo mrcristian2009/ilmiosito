@@ -503,3 +503,25 @@ html {
     background-color: rgba(0, 122, 255, 0.3);
     color: #fff;
 }
+/* Nasconde il cursore di sistema ovunque */
+html, body {
+    cursor: none !important;
+}
+
+/* Assicurati che anche sui link e bottoni sparisca la manina */
+a, button, .card, input, textarea {
+    cursor: none !important;
+}
+
+/* Stile del tuo pallino personalizzato (se non lo hai già così) */
+.custom-cursor {
+    width: 12px;
+    height: 12px;
+    background-color: #fff; /* O il tuo rosso Ferrari #eb0000 */
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none; /* FONDAMENTALE: il pallino non deve bloccare i click */
+    z-index: 9999;
+    mix-blend-mode: difference; /* Lo rende visibile sia su bianco che su nero */
+    transition: transform 0.1s ease-out;
+}
