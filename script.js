@@ -167,3 +167,12 @@ if (!isTouchDevice) {
         });
     });
 }
+
+// =========================================
+// COPYRIGHT DINAMICO
+// =========================================
+const copyrightElement = document.querySelector('footer p, .copyright');
+if (copyrightElement) {
+    const currentYear = new Date().getFullYear();
+    copyrightElement.innerHTML = `© ${currentYear} Robert-Cristian Mocanu`;
+}
